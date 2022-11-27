@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/ccbd4d6bc1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    
+    <link rel="shortcut icon" href="iframe/jordan/images/favicon.png">    
+    <link rel="stylesheet" href="iframe/jordan/css/styles.css">
+    <script src="iframe/jordan/js/script.js"></script>
+        
+    <style>
+        /* Button Scroll Top */
+        #btnScroll {
+            display: none;
+            position: fixed;
+            height: 30px;
+            width: 30px;
+            bottom: 20px;
+            right: 15px;
+            z-index: 999;
+            font-size: 18px;
+            border: 1px solid #ffffff50;
+            outline: none;
+            background-color: transparent;
+            color: #ffffff50;
+            cursor: pointer;
+            padding: 0px;
+            border-radius: 50%;
+        }
+        
+        #btnScroll:hover {
+            border: 1px solid #ffffff80;
+            color: #ffffff80;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-banner">
+        <!-- Navigation -->
+        <section class="container nav row">
+            <a href="#" class="logo">
+                <img src="iframe/jordan/images/logo.png" alt="">
+            </a>
+            <div class="toggleMenu" onclick="toggleMenu();"></div>
+            <nav class="navigation row">
+                <ul class="row">
+                    <li><a href="#nike">Retrô</a></li>
+                    <li><a href="#adidas">One</a></li>
+                    <li><a href="#">Force</a></li>
+                </ul>
+
+                <ul class="secondary-link row">
+                    <li><a href="#" class="nav-btn"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="#" class="nav-btn"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#" class="nav-btn"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#" class="nav-btn"><i class="fab fa-dribbble"></i></a></li>
+                    <li><a href="#" class="nav-btn"><i class="fab fa-pinterest"></i></a></li>
+                    <li><a href="#" class="nav-btn"><i class="fab fa-tumlr"></i></a></li>
+                </ul>
+            </nav>
+        </section>
+        <!-- End Navigation -->
+
+        <!-- Hero Section -->
+        <section class="container hero row">
+            <div>
+                <h1>just do it</h1>
+                <p>i believe i can fly</p>
+                <a href="#" class="btn row"><span>air jordan</span></a>
+            </div>
+            <div class="col row">
+                <img src="iframe/jordan/images/banner.png" alt="">
+            </div>
+        </section>
+        <!-- End Hero Section -->
+    </div>
+
+    <!-- Páginas Externas-->
+    <iframe id="nike" src="iframe/nike/index.html" style="width: 100vw; height: 100vh; border: 0px;" marginwidth="0" marginheight="0" align="top" frameborder="0" hspace="0" vspace="0"></iframe>    
+    <iframe id="adidas" src="iframe/adidas/index.html" style="width: 100vw; height: 100vh; border: 0px;" marginwidth="0" marginheight="0" align="top" frameborder="0" hspace="0" vspace="0"></iframe>    
+    <!-- Páginas Externas End-->
+    
+    <!-- Scroll Button Start-->
+    <button onclick="topFunction()" id="btnScroll" title="Topo"><i class="fa fa-caret-up"></i></button>
+    <!-- Scroll Button End-->
+    
+    <script>
+    // $( "#elemento" ).load( "iframe/jordan/index.html" ); 
+    // Menu Suave Media Query
+        function myFunction(x) {
+            if (x.matches) { // If media query matches
+                $('nav a').click(function(e){
+                    e.preventDefault();
+                    var id = $(this).attr('href'),
+                        targetOffset = $(id).offset().top,
+                        menuHeight = $('nav').innerHeight();
+
+                    $('html, body').animate({
+                        scrollTop: targetOffset - menuHeight + 103
+                    }, 1000);
+                });
+            } else {
+                $('nav a').click(function(e){
+                    e.preventDefault();
+                    var id = $(this).attr('href'),
+                        targetOffset = $(id).offset().top,
+                        menuHeight = $('nav').innerHeight();
+
+                    $('html, body').animate({
+                        scrollTop: targetOffset - menuHeight + 60
+                    }, 1000);
+                });
+            }
+        }
+        var x = window.matchMedia("(max-width: 760px)")
+        myFunction(x) // Call listener function at run time
+        x.addListener(myFunction) // Attach listener function on state changes
+    // Menu Suave Media Query Fim 
+
+
+
+    // Botão de Scrollbar //
+        var mybutton = document.getElementById("btnScroll");
+        // quando rolar a página 20px do topo para baixo, o botão será exibido
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+        
+        // // jQuery quando clicar no botão, a página rola para o topo do documento
+        var btn = $("#btnScroll");
+
+        btn.click(function() {
+            $('html, body').animate({scrollTop:0}, 'slow');
+        });
+    // Botão de Scrollbar Fim //
+    </script>
+</body>
+</html>
